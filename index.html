@@ -3,78 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Video Gallery</title>
+    <title>Video Player</title>
     <style>
         body {
             margin: 0;
-            padding: 20px;
-            background-color: #1a1a1a; /* Dark background for cinema feel */
+            padding: 0;
+            background-color: #1a1a1a;
             font-family: sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* The Grid Container */
-        .gallery-grid {
-            display: grid;
-            gap: 20px;
-            /* Default: 1 column (Mobile) */
-            grid-template-columns: 1fr;
+        .video-container {
+            max-width: 90%;
+            width: 800px; /* Adjust max width as needed */
+            text-align: center;
         }
 
-        /* Desktop: 3 columns (Triggered when screen is wider than 768px) */
-        @media (min-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* The Video Styling */
-        .video-item {
+        video {
             width: 100%;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: transform 0.2s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             background: #000;
         }
 
-        .video-item:hover {
-            transform: scale(1.02); /* Subtle zoom effect on hover */
-            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #555;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: #555;
         }
     </style>
 </head>
 <body>
 
-    <div class="gallery-grid">
-        <video class="video-item" src="VideoSuperHQ720.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
-      <!--  
-        <video class="video-item" src="video2.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+    <div class="video-container">
+        <video controls autoplay muted playsinline>
+            <source src="VideoSuperHQ720.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-        <video class="video-item" src="video3.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
-        
-        </div>
-      -->
-    <script>
-        // Select all videos
-        const videos = document.querySelectorAll('.video-item');
+        <br>
 
-        videos.forEach(video => {
-            video.addEventListener('click', function() {
-                // Request Fullscreen
-                if (this.requestFullscreen) {
-                    this.requestFullscreen();
-                } else if (this.webkitRequestFullscreen) { /* Safari */
-                    this.webkitRequestFullscreen();
-                } else if (this.msRequestFullscreen) { /* IE11 */
-                    this.msRequestFullscreen();
-                }
-                
-                // Optional: Unmute and play when clicking
-                this.muted = false;
-                this.play();
-            });
-        });
-    </script>
+        <a href="VideoSuperHQ720.mp4" download="endroll.mp4" class="download-btn">
+            Download Video
+        </a>
+    </div>
 
 </body>
 </html>
