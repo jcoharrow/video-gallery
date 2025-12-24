@@ -6,7 +6,16 @@
     <title>エンドロール</title>
 
     <link rel="icon" type="image/png" href="icon.png"> 
+
+    <meta property="og:site_name" content="Video Gallery">
+    <meta property="og:title" content="エンドロール">
+    <meta property="og:description" content="Click to download or watch the video.">
+    <meta property="og:image" content="https://jcoharrow.github.io/video-gallery/thumbnail.png">
+    <meta property="og:url" content="https://jcoharrow.github.io/video-gallery/">
+    <meta property="og:type" content="website">
     
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://jcoharrow.github.io/video-gallery/thumbnail.png">
     <style>
         body {
             margin: 0;
@@ -36,11 +45,8 @@
 
         .download-btn {
             display: inline-block;
-            /* Changed from 20px to 40px to lower the button */
-            margin-top: 80px; 
-            /* Changed from 10px 20px to 8px 16px to make it smaller */
+            margin-top: 40px; 
             padding: 8px 16px;
-            /* Added font-size to scale the text down slightly */
             font-size: 14px;
             background-color: #333;
             color: white;
@@ -58,14 +64,14 @@
 <body>
 
     <div class="video-container">
-        <video controls autoplay muted playsinline>
-            <source src="VideoSuperHQ720.mp4" type="video/mp4">
+        <video controls autoplay muted playsinline poster="thumbnail.png">
+            <source src="endroll.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
         <br>
 
-        <a href="VideoSuperHQ720.mp4" download="endroll.mp4" class="download-btn">
+        <a href="endroll.mp4" download="endroll.mp4" class="download-btn">
             ダウンロード
         </a>
     </div>
